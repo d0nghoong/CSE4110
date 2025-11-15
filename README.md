@@ -3,47 +3,45 @@
 
 # Project 1
 ## 1. ERD (Entity-Relationship Diagram)
-
-![ERD](20210091_이동형.png)
+<img width="1705" height="680" alt="20210091_이동형" src="https://github.com/user-attachments/assets/beda575e-9c5e-4ee7-9124-6c4567be6128" />
 
 ## 2. Entity and Relationship Justification (엔터티 및 관계)
-
-[cite_start]이번 과제에서는 Store, Product, Vendor, Inventory, Customer, Sales Transaction, Transaction_item을 포함합니다. [cite: 4]
-[cite_start]선택적 엔터티(Customer, Sales Transaction, Transaction_item)은 ERD에서 다른 entity와 색깔에서 차이를 두면서 구별하였습니다. [cite: 38]
+Store, Product, Vendor, Inventory, Customer, Sales Transaction, Transaction_item을 포함합니다.
+선택적 엔터티(Customer, Sales Transaction, Transaction_item)은 ERD에서 다른 entity와 색깔에서 차이를 두면서 구별하였습니다.
 
 ### Store
-* [cite_start]**설명**: 편의점 매장을 나타냅니다. [cite: 6]
-* [cite_start]**속성**: `store_id` (기본 키), 점포명, 주소, 영업시간, 소유형태(프랜차이즈/직영점) [cite: 6]
-* [cite_start]**Relationship (Records)**: 하나의 매장은 여러 개의 판매(SalesTransaction)가 일어날 수 있습니다 (1:N 관계). [cite: 8]
+**설명**: 편의점 매장을 나타냅니다. 
+**속성**: `store_id` (기본 키), 점포명, 주소, 영업시간, 소유형태(프랜차이즈/직영점)
+**Relationship (Records)**: 하나의 매장은 여러 개의 판매(SalesTransaction)가 일어날 수 있습니다 (1:N 관계). 
 
 ### Product
-* [cite_start]**설명**: 제품을 나타냅니다. [cite: 10]
-* [cite_start]**속성**: `UPC` (기본 키), 브랜드, 포장 종류, 크기, 가격 [cite: 10]
-* [cite_start]**Relationship (Is_part_of)**: 하나의 제품은 여러 거래(Transaction_item)에 따라 다양한 개수로 거래가 됩니다 (1:N 관계). [cite: 13, 14]
+]**설명**: 제품을 나타냅니다. 
+**속성**: `UPC` (기본 키), 브랜드, 포장 종류, 크기, 가격
+**Relationship (Is_part_of)**: 하나의 제품은 여러 거래(Transaction_item)에 따라 다양한 개수로 거래가 됩니다 (1:N 관계).
 
 ### Vendor
-* [cite_start]**설명**: 제품을 공급하는 업체를 나타냅니다. [cite: 16]
-* [cite_start]**속성**: 고유 `id` (기본 키), 이름, 연락처 [cite: 16]
-* [cite_start]**Relationship (Supply)**: 여러 개의 업체는 여러 개의 상품(Product)을 제공할 수 있습니다 (M:N 관계). [cite: 18]
+**설명**: 제품을 공급하는 업체를 나타냅니다. 
+**속성**: 고유 `id` (기본 키), 이름, 연락처 
+**Relationship (Supply)**: 여러 개의 업체는 여러 개의 상품(Product)을 제공할 수 있습니다 (M:N 관계). 
 
 ### Inventory
-* [cite_start]**설명**: 특정 점포가 보유한 재고를 나타냅니다. [cite: 20]
-* [cite_start]**속성**: `(store_id, UPC)` (기본 키, 각각 Foreign Key), 제품의 수량, 재주문 임계값, 최근 주문일, 재입고 필요 여부 [cite: 20, 21]
-* [cite_start]**Relationship (Has_inventory)**: 하나의 매장(Store)은 여러 제품의 재고를 가질 수 있습니다 (N:1 관계). [cite: 23]
+**설명**: 특정 점포가 보유한 재고를 나타냅니다.
+**속성**: `(store_id, UPC)` (기본 키, 각각 Foreign Key), 제품의 수량, 재주문 임계값, 최근 주문일, 재입고 필요 여부 
+**Relationship (Has_inventory)**: 하나의 매장(Store)은 여러 제품의 재고를 가질 수 있습니다 (N:1 관계).
 
 ### Customer
-* **설명**: 고객을 나타냅니다. (선택적 entity) [cite_start][cite: 25]
-* [cite_start]**속성**: `customer_id` (기본 키), 이름, 전화번호, 이메일, 로열티 프로그램 참여 여부 [cite: 25]
-* [cite_start]**Relationship (Transaction)**: 한 명의 고객은 여러 횟수의 거래(SalesTransaction)를 진행할 수 있습니다 (1:N 관계). [cite: 27]
+* **설명**: 고객을 나타냅니다. (선택적 entity) 
+**속성**: `customer_id` (기본 키), 이름, 전화번호, 이메일, 로열티 프로그램 참여 여부 
+**Relationship (Transaction)**: 한 명의 고객은 여러 횟수의 거래(SalesTransaction)를 진행할 수 있습니다 (1:N 관계).
 
 ### Sales Transaction
-* [cite_start]**설명**: 판매 내역을 기록합니다. [cite: 28]
-* [cite_start]**속성**: `transaction_id` (기본 키), `store_id` (FK), `customer_id` (FK), 거래 일시, 결제 방식, 총액 [cite: 28, 29]
-* [cite_start]**Relationship (Contains)**: Transaction_item들을 이용하여 하나의 Sales Transaction이 일어납니다 (1:N 관계). [cite: 31, 32, 33]
+**설명**: 판매 내역을 기록합니다. 
+**속성**: `transaction_id` (기본 키), `store_id` (FK), `customer_id` (FK), 거래 일시, 결제 방식, 총액 
+**Relationship (Contains)**: Transaction_item들을 이용하여 하나의 Sales Transaction이 일어납니다 (1:N 관계).
 
 ### Transaction_item
-* **설명**: 거래 내의 개별 제품 항목을 나타냅니다. (선택적 entity) [cite_start][cite: 35]
-* [cite_start]**속성**: `(transaction_id, UPC)` (기본 키, 각각 Foreign Key), 제품 수량 [cite: 35, 36]
+* **설명**: 거래 내의 개별 제품 항목을 나타냅니다. (선택적 entity) 
+**속성**: `(transaction_id, UPC)` (기본 키, 각각 Foreign Key), 제품 수량
 
 # Project 2
 
