@@ -1,6 +1,6 @@
 # CSE4110
 서강대학교 데이터베이스시스템(CSE4110) 수업의 과제
-# 목차
+# 🗂️ 목차
 * [Project 1](#project-1)
 * [Project 2](#project-2)
 
