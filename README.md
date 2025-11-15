@@ -41,7 +41,7 @@ Store, Product, Vendor, Inventory, Customer, Sales Transaction, Transaction_item
 
 ### Transaction_item
 * **설명**: 거래 내의 개별 제품 항목을 나타냅니다. (선택적 entity) 
-**속성**: `(transaction_id, UPC)` (기본 키, 각각 Foreign Key), 제품 수량
+* **속성**: `(transaction_id, UPC)` (기본 키, 각각 Foreign Key), 제품 수량
 
 # Project 2
 
